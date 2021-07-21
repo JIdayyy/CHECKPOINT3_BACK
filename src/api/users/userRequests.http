@@ -1,0 +1,23 @@
+GET http://localhost:5000/users/
+Content-Type: application/json
+
+###
+
+POST http://localhost:5000/users/
+
+{
+    "email":"email@email.fr",
+    "password":"123123123"
+}
+
+###
+PUT http://localhost:5000/users/34f13f95-98ea-4de6-bdd2-c4f210d5e9e7
+Content-Type: application/json
+
+{
+    "email":"email@email.fr",
+    "password":"123123123",
+    "firstname":"julzdqzdqdqdqzdien",
+    "lastname":"durqzdqzdqdqdqzdzand",
+    "username":"julien"
+}

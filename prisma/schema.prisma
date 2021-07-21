@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String    @id @default(uuid())
+  username  String?
+  firstname String?
+  lastname  String?
+  birthdate DateTime?
+  password  String
+  picture   String?
+  email     String    @unique
+  role      Role      @default(USER)
+  promo     Promo[]
+  comments  Comment[]
+}
+
+model Promo {
+  id          String    @id @default(uuid())
+  title       String
+  description String
+  date        String
+  users       User[]
+  comments    Comment[]
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  body      String?
+  picture   String?
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  promo     Promo    @relation(fields: [promoId], references: [id])
+  promoId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Instructor {
+  id        String    @id @default(uuid())
+  username  String
+  firstname String
+  lastname  String
+  birthdate DateTime?
+
+}
+
+model Session {
+  id       String @id @default(uuid())
+  date     String
+  campus   Campus @relation(fields: [campusId], references: [id])
+  campusId String
+}
+
+model Campus {
+  id       String    @id @default(uuid())
+  name     String
+  city     String
+  country  String
+  sessions Session[]
+}
+
+enum Role {
+  ADMIN
+  USER
+}
