@@ -63,8 +63,8 @@ model Session {
 
 model Campus {
   id       String    @id @default(uuid())
-  name     String
-  city     String
+  name     String     @unique
+  city     String     
   country  String
   sessions Session[]
 }

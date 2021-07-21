@@ -4,6 +4,7 @@ import UserHandler from "./interfaces";
 const put: UserHandler["put"] = async (req, res, next) => {
   const { id } = req.params;
   const { body } = req;
+  console.log(req.body, "test");
   try {
     const updatedUser = await prisma.user.update({
       where: { id },

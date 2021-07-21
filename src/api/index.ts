@@ -9,12 +9,12 @@ import auth from "./auth/routes";
 import checkToken from "../middleware/checkToken";
 const router = Router();
 
-router.use("/users", checkToken, users);
-router.use("/sessions", checkToken, sessions);
-router.use("/comments", checkToken, comments);
-router.use("/instructors", checkToken, instructors);
-router.use("/promos", checkToken, promos);
-router.use("/campusses", checkToken, campusses);
+router.use("/users", users);
+router.use("/sessions", sessions);
+router.use("/comments", comments);
+router.use("/instructors", instructors);
+router.use("/promos", promos);
+router.use("/campusses", campusses);
 router.use("/auth", auth);
 
 export default router;

@@ -2,17 +2,29 @@ POST http://localhost:5000/auth/register
 Content-Type: application/json
 
 {
-    "email":"zeoiddube@sovnz.fr",
-    "password":"123456"
-    
+    "email":"admin@admin.fr",
+    "password":"admin"  ,
+    "role":"ADMIN" 
 }
-
 ####
 
 POST http://localhost:5000/auth/login
 Content-Type: application/json
 
 {
-    "email":"zeoiddube@sovnz.fr",
-    "password":"123456"   
+    "email":"admin@admin.fr",
+    "password":"admin"  ,
+    "role":"ADMIN" 
+}
+
+###
+GET http://localhost:5000/users/d80b74a7-0dbe-4948-aa81-c020846d792b
+
+###
+PUT http://localhost:5000/users/d80b74a7-0dbe-4948-aa81-c020846d792b
+
+{
+    "email":"admin@admin.fr",
+
+    "role":"ADMIN" ,
 }

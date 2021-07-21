@@ -6,6 +6,7 @@ const post: CampusHandler["post"] = async (req, res, next) => {
     const newCampus = await prisma.campus.create({
       data: body,
     });
+    res.status(201).json(newCampus);
   } catch (error) {
     next(error);
   }

@@ -1,0 +1,12 @@
+GET http://localhost:5000/campusses/
+
+
+####
+POST http://localhost:5000/campusses
+Content-Type: application/json
+
+{
+    "name": "Campus 3",
+    "city": "Biarritz",
+    "country":"France"
+}
