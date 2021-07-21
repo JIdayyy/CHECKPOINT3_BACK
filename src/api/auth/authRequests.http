@@ -2,12 +2,20 @@ POST http://localhost:5000/auth/register
 Content-Type: application/json
 
 {
-    "email":"admin@admin.fr",
+    "email":"ADMIN@admin.fr",
     "password":"admin"  ,
     "role":"ADMIN" 
 }
 ####
 
+
+PUT http://localhost:5000/users/d80b74a7-0dbe-4948-aa81-c020846d792b
+
+{
+    "email":"admin@admin.fr",
+    "role":"ADMIN" 
+}
+###
 POST http://localhost:5000/auth/login
 Content-Type: application/json
 
@@ -18,13 +26,13 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/users/d80b74a7-0dbe-4948-aa81-c020846d792b
-
+GET http://localhost:5000/users/
 ###
-PUT http://localhost:5000/users/d80b74a7-0dbe-4948-aa81-c020846d792b
+PUT http://localhost:5000/users/934a3502-e341-47d0-9877-7a453a6c481a
+Content-Type: :application/json
 
 {
     "email":"admin@admin.fr",
-
     "role":"ADMIN" ,
+    "username":"julien"
 }
