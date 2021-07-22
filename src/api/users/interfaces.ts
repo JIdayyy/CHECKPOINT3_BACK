@@ -7,6 +7,7 @@ interface ReqBodyUserPost {
   password: string;
   username?: string;
   picture?: string;
+  birthdate?: string;
   firstname?: string;
   lastname?: string;
   promoId: string;
@@ -21,6 +22,7 @@ interface ReqBodyUserPut {
   picture?: string;
   firstname?: string;
   lastname?: string;
+  birthdate?: string;
   promoId?: string;
   role?: Role;
 }

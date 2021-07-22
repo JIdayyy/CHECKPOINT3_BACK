@@ -16,7 +16,7 @@ model User {
   username  String?
   firstname String?
   lastname  String?
-  birthdate DateTime?
+  birthdate String?
   password  String
   picture   String?
   email     String    @unique
@@ -34,7 +34,7 @@ model Promo {
   campus      Campus    @relation(fields: [campusId], references: [id], onDelete: Cascade)
   campusId    String
   comments    Comment[]
-  session     Session   @relation(fields: [sessionId], references: [id])
+  session     Session   @relation(fields: [sessionId], references: [id], onDelete: Cascade)
   sessionId   String
 }
 
