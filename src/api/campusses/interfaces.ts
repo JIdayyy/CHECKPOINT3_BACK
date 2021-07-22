@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import { Campus } from ".prisma/client";
 import { User, Promo } from ".prisma/client";
-
+import { Comment } from ".prisma/client";
 interface ReqBodyCampusPost {
   name: string;
   city: string;
