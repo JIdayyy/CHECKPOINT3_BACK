@@ -6,6 +6,7 @@ const post: PromoHandler["post"] = async (req, res, next) => {
     const newPromo = await prisma.promo.create({
       data: body,
     });
+    res.status(200).json(newPromo);
   } catch (error) {
     next(error);
   }

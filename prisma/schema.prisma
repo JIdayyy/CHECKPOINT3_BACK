@@ -7,7 +7,8 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialActions"]
 }
 
 model User {
@@ -30,43 +31,52 @@ model Promo {
   description String
   date        String
   users       User[]
+  campus      Campus    @relation(fields: [campusId], references: [id], onDelete: Cascade)
+  campusId    String
   comments    Comment[]
+  session     Session   @relation(fields: [sessionId], references: [id])
+  sessionId   String
 }
 
 model Comment {
   id        String   @id @default(uuid())
   body      String?
   picture   String?
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
-  promo     Promo    @relation(fields: [promoId], references: [id])
+  promo     Promo    @relation(fields: [promoId], references: [id], onDelete: Cascade)
   promoId   String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
 
 model Instructor {
-  id        String    @id @default(uuid())
+  id        String @id @default(uuid())
   username  String
   firstname String
   lastname  String
-  birthdate DateTime?
-
+  birthdate String
+  campus    Campus @relation(fields: [campusId], references: [id], onDelete: Cascade)
+  campusId  String
 }
 
 model Session {
-  id       String @id @default(uuid())
+  id       String  @id @default(uuid())
   date     String
-  campus   Campus @relation(fields: [campusId], references: [id])
+  campus   Campus  @relation(fields: [campusId], references: [id], onDelete: Cascade)
   campusId String
+  promos   Promo[]
 }
 
 model Campus {
   id       String    @id @default(uuid())
-  name     String     @unique
-  city     String     
+  name     String    @unique
+  city     String
   country  String
   sessions Session[]
+  Promo    Promo[]
+
+  Instructor Instructor[]
 }
 
 enum Role {

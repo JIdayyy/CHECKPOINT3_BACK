@@ -6,6 +6,7 @@ const post: InstructorHandler["post"] = async (req, res, next) => {
     const newInstructor = await prisma.instructor.create({
       data: body,
     });
+    res.status(200).json(newInstructor);
   } catch (error) {
     next(error);
   }

@@ -20,7 +20,7 @@ POST http://localhost:5000/auth/login
 Content-Type: application/json
 
 {
-    "email":"admin@admin.fr",
+    "email":"ADMIN@admin.fr",
     "password":"admin"  ,
     "role":"ADMIN" 
 }
@@ -28,7 +28,10 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/users/
 ###
-PUT http://localhost:5000/users/934a3502-e341-47d0-9877-7a453a6c481a
+###
+GET http://localhost:5000/users/
+###
+PUT http://localhost:5000/users/9f3e17a7-ae8a-4488-89ce-5986f4b7c56e
 Content-Type: :application/json
 
 {
@@ -36,3 +39,9 @@ Content-Type: :application/json
     "role":"ADMIN" ,
     "username":"julien"
 }
+
+
+
+###
+GET https://api.wildcodeschool.com/api/v3/notifications
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjI4ODk3LCJtaWQiOm51bGwsInQiOiIyMDIxMDcyMjA3NTk0OCJ9.SyWmjNj2TAxmaqC7rgLWiPvLGwVFbdAEsaZtSmGRs-8

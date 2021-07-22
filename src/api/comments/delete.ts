@@ -5,6 +5,7 @@ const deleteOne: CommentHandler["delete"] = async (req, res, next) => {
   const { id } = req.params;
   try {
     const deletedComment = await prisma.comment.delete({ where: { id: req.params.id } });
+    res.sendStatus(204);
   } catch (error) {
     next(error);
   }

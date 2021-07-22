@@ -9,6 +9,7 @@ const put: InstructorHandler["put"] = async (req, res, next) => {
       where: { id },
       data: body,
     });
+    res.sendStatus(204);
   } catch (error) {
     next(error);
   }

@@ -11,7 +11,7 @@ const put: UserHandler["put"] = async (req, res, next) => {
       data: body,
     });
 
-    res.sendStatus(201);
+    res.sendStatus(204);
   } catch (err) {
     next(err);
   }

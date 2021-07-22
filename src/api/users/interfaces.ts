@@ -9,6 +9,7 @@ interface ReqBodyUserPost {
   picture?: string;
   firstname?: string;
   lastname?: string;
+  promoId: string;
   role?: Role;
 }
 interface UserWithoutPassword extends Omit<User, "password"> {}
@@ -20,6 +21,7 @@ interface ReqBodyUserPut {
   picture?: string;
   firstname?: string;
   lastname?: string;
+  promoId?: string;
   role?: Role;
 }
 

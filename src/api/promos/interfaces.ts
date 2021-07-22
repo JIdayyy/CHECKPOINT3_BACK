@@ -5,11 +5,15 @@ interface ReqBodyPromoPost {
   title: string;
   description: string;
   date: string;
+  campusId: string;
+  sessionId: string;
 }
 interface ReqBodyPromoPut {
   title?: string;
   description?: string;
   date?: string;
+  campusId?: string;
+  sessionId?: string;
 }
 
 export interface PromoHandler {

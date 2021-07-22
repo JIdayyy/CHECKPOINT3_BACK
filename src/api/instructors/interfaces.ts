@@ -5,13 +5,15 @@ interface ReqBodyInstructorPost {
   username: string;
   firstname: string;
   lastname: string;
-  birthDate: Date;
+  birthdate: string;
+  campusId: string;
 }
 interface ReqBodyInstructorPut {
   username?: string;
   firstname?: string;
   lastname?: string;
-  birthDate: Date;
+  birthdate: string;
+  campusId?: string;
 }
 
 export interface InstructorHandler {

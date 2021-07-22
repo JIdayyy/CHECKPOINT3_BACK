@@ -6,6 +6,7 @@ const put: PromoHandler["put"] = async (req, res, next) => {
   const { body } = req;
   try {
     const updatedPromo = await prisma.promo.update({ where: { id }, data: body });
+    res.sendStatus(204);
   } catch (error) {
     next(error);
   }

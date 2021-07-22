@@ -1,15 +1,15 @@
 import { RequestHandler } from "express";
 import { Session } from ".prisma/client";
 
-interface ReqBodySessionPut {
-  id: string;
-  date: string;
-  campusId: string;
-}
 interface ReqBodySessionPost {
   id: string;
   date: string;
   campusId: string;
+}
+interface ReqBodySessionPut {
+  id?: string;
+  date?: string;
+  campusId?: string;
 }
 
 export interface SessionHandler {

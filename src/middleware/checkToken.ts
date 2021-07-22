@@ -2,12 +2,14 @@ import { NextFunction, Response } from "express";
 import jwt from "jsonwebtoken";
 
 function checkToken(req: any, res: Response, next: NextFunction): any {
+  console.log("check");
+
   try {
     const rawToken = req.headers.cookie;
     const token = rawToken?.split("=");
-
+    console.log(req, req.headers);
     if (typeof token === "undefined") {
-      throw new Error("You need to login.");
+      throw new Error("You need to login....");
     }
     const index = token.indexOf("token");
 

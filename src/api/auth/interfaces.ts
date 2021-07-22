@@ -16,4 +16,5 @@ export default interface AuthHandlers {
   register: RequestHandler<register, UserWithoutPassword, register>;
 
   login: RequestHandler<Record<string, never>, UserWithoutPassword | { message: string } | Error, register>;
+  refresh: RequestHandler<Record<string, never>, UserWithoutPassword | { message: string } | Error, register>;
 }

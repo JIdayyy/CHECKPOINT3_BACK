@@ -6,6 +6,7 @@ const post: CommentHandler["post"] = async (req, res, next) => {
     const newComment = await prisma.comment.create({
       data: body,
     });
+    res.status(201).json(newComment);
   } catch (error) {
     next(error);
   }

@@ -6,7 +6,7 @@ POST http://localhost:5000/campusses
 Content-Type: application/json
 
 {
-    "name": "Campus 3",
-    "city": "Biarritz",
+    "name": "Camdqzdzpus 3",
+    "city": "Biqdzzqdarritz",
     "country":"France"
 }
