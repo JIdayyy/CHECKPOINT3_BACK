@@ -3,6 +3,7 @@ import controller from "./controller";
 const router = Router();
 
 router.get("/", controller.getAll);
+router.get("/:commentId/user", controller.getUser);
 router.get("/:id", controller.getOne);
 router.post("/", controller.post);
 router.put("/:id", controller.put);
