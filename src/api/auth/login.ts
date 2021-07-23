@@ -37,9 +37,9 @@ const login: AuthHandlers["login"] = async (req, res, next) => {
     );
 
     const { password: removedPassword, ...userWithoutPassword } = user;
-    res.cookie(token, "token", { maxAge: 360000 });
+    // res.cookie("token", token, { maxAge: 360000 });
     res.cookie("token", token, {
-      maxAge: 3600,
+      expires: new Date(Date.now() + 3600000000000000),
       secure: false, // set to true if your using https
       httpOnly: true,
     });

@@ -5,23 +5,26 @@ import { NextFunction, Response } from "express";
 import jwt from "jsonwebtoken";
 const refresh: AuthHandlers["refresh"] = async (req: any, res: Response, next: NextFunction) => {
   try {
-    console.log("Cookies: ", req.cookies);
-    const rawToken = req.headers.cookie;
-    const token = rawToken?.split("=");
+    const token = req.cookies.token;
 
     if (typeof token === "undefined") {
       throw new Error("You need to login.");
     }
-    const index = token.indexOf("token");
 
-    req.user = jwt.verify(token[index + 1], process.env.TOKEN_SECRET as string);
+    console.log(token);
+    req.user = jwt.verify(token, process.env.TOKEN_SECRET as string);
     res.cookie("token", token, {
-      expires: new Date(Date.now() + "3600s"),
+      maxAge: 3600,
       secure: false, // set to true if your using https
       httpOnly: true,
     });
-    console.log(res.cookie);
-    res.status(200).json({ message: "Allready logged " });
+    res.set({
+      "Access-Control-Allow-Credentials": true,
+    });
+
+    const user = await prisma.user.findUnique({ where: { id: req.user.id } });
+
+    res.status(200).json(user);
   } catch (err) {
     res.status(401);
 
